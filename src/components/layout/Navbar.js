@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const navs = [
     { path: '/', name: 'Home' },
+    { path: '/todo', name: 'Todo' }
 ]
 
 export default function Navbar() {
