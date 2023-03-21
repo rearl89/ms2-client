@@ -12,7 +12,7 @@ export default function InputTodo() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
             })
-
+            window.location = "/todo";
         } catch (error) {
             console.error(error)
         }
