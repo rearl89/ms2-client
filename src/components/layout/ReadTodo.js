@@ -44,7 +44,7 @@ export default function ReadTodos() {
         {todos.map((todo) => (
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
-            <td><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></td>
+            <td><EditTodo todo={todo} /></td>
             <td><button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
           </tr>
         ))}
