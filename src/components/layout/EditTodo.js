@@ -16,9 +16,10 @@ export default function EditTodo({ todo }) {
           body: JSON.stringify(body),
         }
       );
+      //refreshes page after editting todo
       window.location = "/todo";
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -72,7 +73,7 @@ export default function EditTodo({ todo }) {
               </button>
               <button
                 type="button"
-                className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                 data-dismiss="modal"
                 onClick={() => setDescription(todo.description)}
               >

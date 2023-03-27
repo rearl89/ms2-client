@@ -9,9 +9,10 @@ export default function ReadTodos() {
       const deleteTodo = await fetch(`http://localhost:5001/todos/${id}`, {
         method: "DELETE",
       });
+      //refreshes app to remove deleted todos
       setTodos(todos.filter((todo) => todo.todo_id !== id));
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -21,11 +22,11 @@ export default function ReadTodos() {
       const jsonData = await response.json();
 
       setTodos(jsonData);
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      console.error(error);
     }
   };
-
+//makes fetch request every time component is rendered
   useEffect(() => {
     getTodos();
   }, []);
@@ -45,7 +46,7 @@ export default function ReadTodos() {
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
             <td><EditTodo todo={todo} /></td>
-            <td><button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
+            <td><button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
           </tr>
         ))}
         </tbody>
